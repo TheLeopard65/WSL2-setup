@@ -22,7 +22,7 @@ sudo apt install -y libssl-dev libffi-dev build-essential
 pip install flask flask_socketio bycrypt cryptodome python-socketio numpy tk
 pip install opencv-python websocket-client pyinstaller soundfile sounddevice
 pip install requests pillow pyautogui pynput pwntools yara-python capstone
-pip install leechcorepyc gcsfs s3fs pefile pwn
+pip install leechcorepyc gcsfs s3fs pefile pwnlib
 
 # Installing PIMPMYKALI
 cd /opt
