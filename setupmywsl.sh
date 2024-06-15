@@ -16,7 +16,7 @@ sudo apt install -y dirbuster autopsy masscan maltego chisel foremost pdf-parser
 sudo apt install -y ncat reaver wifite netcat-traditional sqlmap zbar-tools
 sudo apt install -y metasploit-framework iptables python3-pip nikto  checksec
 sudo apt install -y ffmpeg mlocate hydra binwalk git python3-pip python3-dev
-sudo apt install -y libssl-dev libffi-dev build-essential
+sudo apt install -y libssl-dev libffi-dev build-essential wine32 winericks
 
 # Installing important pips
 pip install flask flask_socketio bycrypt cryptodome python-socketio numpy tk
@@ -61,4 +61,13 @@ cd /opt
 git clone https://github.com/radareorg/radare2
 cd radare2
 bash sys/install.sh
+cd ~
+
+#Installing Immunity Debugger
+cd /opt
+wget https://www.immunityinc.com/downloads/immunity_debugger.zip
+unzip immunity_debugger.zip
+rm -rf immunity_debugger.zip
+cd immunity_debugger
+wine IDBG.exe
 cd ~
