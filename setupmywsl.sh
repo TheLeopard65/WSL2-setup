@@ -62,12 +62,3 @@ git clone https://github.com/radareorg/radare2
 cd radare2
 bash sys/install.sh
 cd ~
-
-#Installing Immunity Debugger
-cd /opt
-wget https://www.immunityinc.com/downloads/immunity_debugger.zip
-unzip immunity_debugger.zip
-rm -rf immunity_debugger.zip
-cd immunity_debugger
-wine IDBG.exe
-cd ~
