@@ -51,3 +51,9 @@ git clone https://github.com/radareorg/radare2
 cd radare2
 bash sys/install.sh
 cd ~
+
+# Finel Update and Upgrade
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
