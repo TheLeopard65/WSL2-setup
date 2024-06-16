@@ -1,10 +1,9 @@
 #!/bin/bash
 
-if [ ! -n "$1" ]; then
-    echo "SYNTAX : bash setupmywsl.sh <your_root_password>"
+if [ $(whoami) != "root" ]; then
+    echo "SYNTAX: Please Elevate yourself to Roor First"
     exit 1
 fi
-sudo su | $1
 
 # Updating and Upgrading for the WSL2
 sudo apt update -y
