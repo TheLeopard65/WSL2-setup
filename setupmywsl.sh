@@ -57,3 +57,5 @@ bash sys/install.sh
 
 # Finel Update and Upgrade
 apt update -y && apt upgrade -y
+apt full-upgrade -y
+apt autoremove -y
