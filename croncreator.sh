@@ -9,7 +9,7 @@ fi
 cp ./updatemywsl.sh /root/.updatemywsl.sh
 PATH="/root/.updatemywsl.sh"
 chmod 700 $PATH
-JOB="0 0 1 * * $PATH"
+JOB="0 0 1 * * $PATH >> /var/log/updatemywsl.log 2>&1"
 
 # Check if the script file exists
 if [ ! -f "$PATH" ]; then
