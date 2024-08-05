@@ -3,8 +3,6 @@
 
 This repository contains a set of scripts designed to set up, update, and maintain a Windows Subsystem for Linux (WSL) environment. Below is a brief description of each script provided in this repository. The script is intended to be run with a root password as an argument.
 
-## Files
-
 ### `Setupmywsl.sh`
 
 This script performs a comprehensive setup of a WSL2 environment, including:
@@ -13,7 +11,7 @@ This script performs a comprehensive setup of a WSL2 environment, including:
 - **Package Installation**: Installs a wide range of tools and utilities for security, networking, and development, such as OpenVPN, Burp Suite, Wireshark, Metasploit Framework, and many others.
 - **Python Packages**: Installs various Python packages using `pip` for additional functionalities.
 - **Database Updates**: Updates several important databases used for security tools.
-- **Additional Tools**: Installs various tools from GitHub repositories, such as PIMPMYKALI, Volatility3, Radare2, and more.
+- **Additional Tools**: Installs various tools from GitHub repositories, such as Pimpmykali, Volatility3, Radare2, and more.
 - **Final System Update**: Performs a final update, upgrade, and cleanup of unused packages.
 
 **Usage**:
@@ -55,12 +53,6 @@ sudo bash Croncreator.sh
 - The scripts must be executed with root privileges. Use `sudo` to run them.
 - Ensure that you have WSL2 installed and configured before running these scripts.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
 ## Disclaimer
 
-These scripts are provided as-is, without any warranty. Use them at your own risk and ensure that they are compatible with your system and its requirements.
-
-For more details and usage, refer to each script's comments and inline documentation.
+Though These scripts are provided as-is, without any warranty but have made sure these script are without any fault or weakness/exploitability. Use them at your own risk and ensure that they are compatible with your system and its requirements. If you find any vulnerability or weakness in the scripts please let me know.
