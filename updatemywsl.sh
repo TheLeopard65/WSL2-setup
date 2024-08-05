@@ -19,7 +19,6 @@ searchsploit -u
 msfupdate
 nmap --script-updatedb
 greenbone-nvt-sync
-nikto -update
 freshclam
 
 # Finel Update and Upgrade
