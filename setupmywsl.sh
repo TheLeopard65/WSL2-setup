@@ -11,7 +11,7 @@ apt install -y openvpn firefox-esr wordlists burpsuite ghidra wireshark nmap net
 
 # Installing important pips
 apt install python3-pip pip
-pip install flask flask_socketio bcrypt beautifulsoup4 impacket paramiko cryptography pysocks scrapy pycryptodome python-nmap python-socketio numpy pytest tk sqlalchemy opencv-python websocket-client pyinstaller soundfile sounddevice requests pillow pyautogui pynput pwntools yara-python capstone leechcorepyc gcsfs s3fs pefile pwnlib
+pip install flask flask_socketio bcrypt beautifulsoup4 pwnedpasswords fuzzing impacket paramiko cryptography pysocks scrapy pycryptodome python-nmap python-socketio numpy pytest tk sqlalchemy opencv-python websocket-client pyinstaller soundfile sounddevice requests pillow pyautogui pynput pwntools yara-python capstone leechcorepyc gcsfs s3fs pefile pwnlib
 
 # Updating some Important Databases
 gzip -d /usr/share/wordlists/rockyou.txt.gz
