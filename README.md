@@ -11,6 +11,7 @@ This script performs a comprehensive setup of a WSL2 environment, including:
 - **Package Installation**: Installs a wide range of tools and utilities for security, networking, and development, such as OpenVPN, Burp Suite, Wireshark, Metasploit Framework, and many others.
 - **Python Packages**: Installs various Python packages using `pip` for additional functionalities.
 - **Database Updates**: Updates several important databases used for security tools.
+- **Updated Nano Config**: Makes your nano shortcuts and interface more Windows like and easy to view and use.
 - **Additional Tools**: Installs various tools from GitHub repositories, such as Pimpmykali, Volatility3, Radare2, and more.
 - **Final System Update**: Performs a final update, upgrade, and cleanup of unused packages.
 
