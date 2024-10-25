@@ -22,6 +22,9 @@ nmap --script-updatedb
 greenbone-nvt-sync
 freshclam
 
+# Making Nano shortcuts and expeierence more windows like:
+cp ./nanorc /etc/nanorc
+
 # Update and Upgrade
 apt update -y && apt upgrade -y
 
