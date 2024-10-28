@@ -118,7 +118,7 @@ set mouse
 # set nohelp
 
 ## Don't automatically add a newline when a file does not end with one.
-set nonewlines
+# set nonewlines
 
 ## Set operating directory.  nano will not read or write files outside
 ## this directory and its subdirectories.  Also, the current directory
