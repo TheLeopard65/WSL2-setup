@@ -27,6 +27,7 @@ cp ./nanorc /etc/nanorc
 
 # Making Terminal like compact and custom:
 cp ./bashrc ~/.bashrc
+source ~/.bashrc
 
 # Update and Upgrade
 apt update -y && apt upgrade -y
