@@ -73,5 +73,6 @@ apt autoremove -y
 updatedb
 
 # Move to Home Directory and run neofetch
+clear
 cd
 neofetch
