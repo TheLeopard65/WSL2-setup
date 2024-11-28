@@ -12,6 +12,7 @@ This script performs a comprehensive setup of a WSL2 environment, including:
 - **Python Packages**: Installs various Python packages using `pip` for additional functionalities.
 - **Database Updates**: Updates several important databases used for security tools.
 - **Updated Nano Config**: Makes your nano shortcuts and interface more Windows like and easy to view and use.
+- **Updated Bash Config**: Makes the bash terminal more minmal and one-lined. (Revert this simply copy the content of `bashrc-backup` into your `.bashrc` file.)
 - **Additional Tools**: Installs various tools from GitHub repositories, such as Pimpmykali, Volatility3, Radare2, and more.
 - **Final System Update**: Performs a final update, upgrade, and cleanup of unused packages.
 
