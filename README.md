@@ -8,7 +8,8 @@ This repository contains a set of scripts designed to set up, update, and mainta
 This script performs a comprehensive setup of a WSL2 environment, including:
 
 - **System Update and Upgrade**: Updates and upgrades the system packages.
-- **Package Installation**: Installs a wide range of tools and utilities for security, networking, and development, such as OpenVPN, Burp Suite, Wireshark, Metasploit Framework, and many others.
+- **Package Installation**: Installs a wide range of tools and utilities for security, networking, development, and much more.
+  - _NOTE:_ To Find the full list please review th code of `setupmywsl.sh`. ( The code isn't the most efficient one, I know :) )
 - **Python Packages**: Installs various Python packages using `pip` for additional functionalities.
 - **GIT Configuration**: Configures if a specific "git" Parameter is passed while executing file e.g `./setupmywsl.sh git`.
   - _NOTE:_ Make Sure to Configure Your Username and Email in the code.)
