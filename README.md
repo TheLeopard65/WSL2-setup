@@ -9,14 +9,14 @@ This script performs a comprehensive setup of a WSL2 environment, including:
 
 - **System Update and Upgrade**: Updates and upgrades the system packages.
 - **Package Installation**: Installs a wide range of tools and utilities for security, networking, development, and much more.
-  - _NOTE:_ To Find the full list please review th code of `setupmywsl.sh`. ( The code isn't the most efficient one, I know :) )
+    - _NOTE:_ To Find the full list please review th code of `setupmywsl.sh`. ( The code isn't the most efficient one, I know :) )
 - **Python Packages**: Installs various Python packages using `pip` for additional functionalities.
 - **GIT Configuration**: Configures if a specific "git" Parameter is passed while executing file e.g `./setupmywsl.sh git`.
-  - _NOTE:_ Make Sure to Configure Your Username and Email in the code.)
+    - _NOTE:_ Make Sure to Configure Your Username and Email in the code.)
 - **Database Updates**: Updates several important databases used for security tools.
 - **Updated Nano Config**: Makes your nano shortcuts and interface more Windows like and easy to view and use.
 - **Updated Bash Config**: Makes the bash terminal more minmal and one-lined.
-  - _NOTE:_ (Can be Reverted by simply copying the content of `bashrc-backup` into `.bashrc` file)
+    - _NOTE:_ (Can be Reverted by simply copying the content of `bashrc-backup` into `.bashrc` file)
 - **Additional Tools**: Installs various tools from GitHub repositories, such as Pimpmykali, Volatility3, Radare2, and more.
 - **Final System Update**: Performs a final update, upgrade, and cleanup of unused packages.
 
