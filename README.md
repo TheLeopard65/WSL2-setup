@@ -10,6 +10,7 @@ This script performs a comprehensive setup of a WSL2 environment, including:
 - **System Update and Upgrade**: Updates and upgrades the system packages.
 - **Package Installation**: Installs a wide range of tools and utilities for security, networking, and development, such as OpenVPN, Burp Suite, Wireshark, Metasploit Framework, and many others.
 - **Python Packages**: Installs various Python packages using `pip` for additional functionalities.
+- **GIT Configuration**: Configures if a specific "git" Parameter is passed while executing file e.g `./setupmywsl.sh git`. (Make Sure to Configure Your Username and Email in the code.)
 - **Database Updates**: Updates several important databases used for security tools.
 - **Updated Nano Config**: Makes your nano shortcuts and interface more Windows like and easy to view and use.
 - **Updated Bash Config**: Makes the bash terminal more minmal and one-lined. (Can be Reverted by simply copying the content of `bashrc-backup` into `.bashrc` file)
@@ -18,7 +19,11 @@ This script performs a comprehensive setup of a WSL2 environment, including:
 
 **Usage**:
 ```bash
-sudo bash Setupmywsl.sh
+# Setting up WSL
+sudo bash setupmywsl.sh
+# OR
+# Setting up WSL with Git Global Configurations (Make sure to Change your username and Email in code)
+sudo bash setupmywsl.sh git
 ```
 
 ### `Updatemywsl.sh`
