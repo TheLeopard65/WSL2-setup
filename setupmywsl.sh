@@ -14,6 +14,12 @@ apt install -y metasploit-framework iptables nikto  checksec ffmpeg plocate hydr
 apt install python3-pip pip
 pip install flask flask_socketio websocket-client bcrypt requests-html flask-restful beautifulsoup4 pwnedpasswords fuzzing geocoder pandas matplotlib lxml selenium PyYAML pycrypto geopy ipython impacket colorama termcolor tqdm paramiko pytesseract pyqt5 pydantic pytest cryptography pysocks scrapy pycryptodome python-nmap python-socketio numpy pytest tk sqlalchemy opencv-python websocket-client pyinstaller soundfile sounddevice requests pillow pyautogui pynput pwntools yara-python capstone leechcorepyc gcsfs s3fs pefile pwnlib pwn
 
+# Setting up your Git and Github Configurations Globally if Parameter "git" is provided.
+if [[ -n "$1" && "$1" == "git" ]]; then
+    git config --global user.name "<GITHUB-USERNAME>"
+    git config --global user.email "<GITHUB-USED-EMAIL@gmail.com>"
+fi
+
 # Updating some Important Databases
 gzip -d /usr/share/wordlists/rockyou.txt.gz
 searchsploit -u
