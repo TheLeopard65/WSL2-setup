@@ -50,14 +50,14 @@ fi
 # Start defining the prompt
 if [ "$color_prompt" = yes ]; then
     # Color codes for the prompt
-    prompt_color='\[\033[1;37m\]'       # White (regular prompt color)
+    color_reset='\[\033[00m\]'           # Resets Color Back to Normal
+    prompt_color='\[\033[1;37m\]'        # White (regular prompt color)
     info_color='\[\033[1;36m\]'          # Cyan (info color)
     user_color='\[\033[1;34m\]'          # Blue (user info color)
     host_color='\[\033[1;31m\]'          # Red (host color)
     path_color='\[\033[1;32m\]'          # Green (path color)
-
-    # Special prompt symbol
-    prompt_symbol="🔒"
+    bold_color='\[\033[0;1m\]'           # Makes Text Bold or Bright
+    prompt_symbol='🔒'                   # Prompt Symbol for Normal User
 
     # If the user is root, change prompt colors and set different symbol
     if [ "$EUID" -eq 0 ]; then
@@ -69,11 +69,9 @@ if [ "$color_prompt" = yes ]; then
     # Set the prompt for a one-line or multi-line style
     case "$PROMPT_ALTERNATIVE" in
         twoline)
-            PS1="\(${prompt_color}┌──${user_color}\u${host_color}@\h${prompt_color}\) - \[${path_color}\w\n└─${info_color}]\$ \[\033[00m\]";;
+        	PS1=$prompt_color'┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+('$bold_color'$(basename $VIRTUAL_ENV)'$prompt_color')}('$user_color'\u'$host_symbol'\h'$prompt_color')-['$path_color'\w'$prompt_color']'$prompt_symbol'\n'$prompt_color'└─'$info_color'\$'$color_reset' ';;
         oneline)
-            PS1="${prompt_color}${prompt_symbol}${user_color}(${user_color}\u${host_color}@\h)${prompt_color}-\[${path_color}[${path_color}\w${path_color}]\]${info_color}\$ \[\033[00m\]";;
-        *)
-            PS1="${prompt_color}${prompt_symbol}${user_color}(${user_color}\u${host_color}@\h)${prompt_color}-\[${path_color}[${path_color}\w${path_color}]\]${info_color}\$ \[\033[00m\]";;
+            PS1=$prompt_color'(${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }${debian_chroot:+($debian_chroot)}'$user_color'\u'$info_color'@'$host_color'\h'$color_reset')-['$path_color'\w'$color_reset']$ ';;
     esac
 else
     PS1='[\u@\h \w]\$ '
