@@ -33,6 +33,8 @@ if [ ! -f /etc/wsl.conf ] || ! grep -q "systemd=true" /etc/wsl.conf; then
 fi
 systemctl start snapd
 snap install code --classic
+echo "export DONT_PROMPT_WSL_INSTALL=true" >> ~/.bashrc
+export DONT_PROMPT_WSL_INSTALL=true
 
 # Updating some Important Databases
 gzip -d /usr/share/wordlists/rockyou.txt.gz
