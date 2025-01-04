@@ -29,7 +29,8 @@ if [ ! -f /etc/wsl.conf ] || ! grep -q "systemd=true" /etc/wsl.conf; then
     echo "systemd=true" >> /etc/wsl.conf
 	systemctl enable snapd
 	echo "[#] Please Exit the WSL and the Following Commands on the CMD."
-	echo "powershell.exe wsl --update\npowershell.exe wsl --shutdown"
+	echo "powershell.exe wsl --update"
+	echo "powershell.exe wsl --shutdown"
 	echo "[#] Then, Restart WSL and re-run \"setupmywsl.sh\" script."
     exit 0
 fi
