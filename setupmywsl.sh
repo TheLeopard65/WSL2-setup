@@ -28,8 +28,9 @@ if [ ! -f /etc/wsl.conf ] || ! grep -q "systemd=true" /etc/wsl.conf; then
     echo "[boot]" >> /etc/wsl.conf
     echo "systemd=true" >> /etc/wsl.conf
 	systemctl enable snapd
-    echo "[#] Please Shutdown the WSL with \"wsl --shutdown\" in CMD and After restartingg the WSL re-run \"setupmywsl.sh\" script"
-    echo "[#] Please also make sure to keep your WSL up-to-date with \"wsl --update\" in CMD."
+	echo "[#] Please Exit the WSL and the Following Commands on the CMD."
+	echo "powershell.exe wsl --update\npowershell.exe wsl --shutdown"
+	echo "[#] Then, Restart WSL and re-run \"setupmywsl.sh\" script."
     exit 0
 fi
 systemctl start snapd
