@@ -8,7 +8,7 @@ fi
 # Updating and Upgrading for the WSL2
 apt update -y && apt upgrade -y
 apt install -y terminator openvpn firefox-esr wordlists webshells burpsuite ghidra wireshark nmap netdiscover libimage-exiftool-perl wafw00f sublist3r tor exploitdb recon-ng python3-shodan torbrowser-launcher dpkg clamav gobuster john network-manager ipinfo feroxbuster eog aircrack-ng steghide python3-scapy hashcat sherlock python3 theharvester hping3 dirsearch gobuster dirbuster autopsy masscan maltego chisel cloudsploit foremost pdf-parser ncat reaver wifite netcat netcat-traditional sqlmap zbar-tools
-apt install -y metasploit-framework iptables nikto  checksec ffmpeg plocate hydra binwalk git python3-dev libssl-dev libffi-dev build-essential libwine amass openvas-scanner trufflehog bloodhound trivy cme responder wfuzz wpscan pacu kismet-core beef gophish evilginx2 adb smbclient dnsenum curl whois pwncat pypdf sniffglue linkfinder rizin sslh cewl dnsrecon vulscan httprobe waybackurls hashid sslyze unicornscan mimikatz scapy pompom fscan bash-completion newfetch code-oss
+apt install -y metasploit-framework iptables nikto  checksec ffmpeg plocate hydra binwalk git python3-dev libssl-dev libffi-dev build-essential libwine amass openvas-scanner trufflehog bloodhound trivy cme responder wfuzz wpscan pacu kismet-core beef gophish evilginx2 adb smbclient dnsenum curl whois pwncat pypdf sniffglue linkfinder rizin sslh cewl dnsrecon vulscan httprobe waybackurls hashid sslyze unicornscan mimikatz scapy pompom fscan bash-completion newfetch code-oss xorg dbus
 
 # Installing important pips
 apt install python3-pip pip
@@ -28,7 +28,8 @@ if [ ! -f /etc/wsl.conf ] || ! grep -q "systemd=true" /etc/wsl.conf; then
     echo "[boot]" >> /etc/wsl.conf
     echo "systemd=true" >> /etc/wsl.conf
 	systemctl enable snapd
-    echo "[@] Please Shutdown the WSL with \"wsl --shutdown\" in CMD and After restartingg the WSL re-run \"setupmywsl.sh\" script"
+    echo "[#] Please Shutdown the WSL with \"wsl --shutdown\" in CMD and After restartingg the WSL re-run \"setupmywsl.sh\" script"
+    echo "[#] Please also make sure to keep your WSL up-to-date with \"wsl --update\" in CMD."
     exit 0
 fi
 systemctl start snapd
