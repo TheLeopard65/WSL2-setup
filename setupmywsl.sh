@@ -2,7 +2,7 @@
 
 if [ $(whoami) != "root" ]; then
     echo "SYNTAX: Please Run this script as ROOT or using SUDO"
-    exit 1
+    exit 0
 fi
 
 # Updating and Upgrading for the WSL2
@@ -19,6 +19,20 @@ if [[ -n "$1" && "$1" == "git" ]]; then
     git config --global user.name "<GITHUB-USERNAME>"
     git config --global user.email "<GITHUB-USED-EMAIL@gmail.com>"
 fi
+
+# Setting Up Systemd and Installing VS-Code
+if [ ! -f /etc/wsl.conf ] || ! grep -q "systemd=true" /etc/wsl.conf; then
+	if [ ! -f /etc/wsl.conf ]; then
+	    touch /etc/wsl.conf
+	fi
+    echo "[boot]" >> /etc/wsl.conf
+    echo "systemd=true" >> /etc/wsl.conf
+	systemctl enable snapd
+    echo "[@] Please Shutdown the WSL with \"wsl --shutdown\" in CMD and After restartingg the WSL re-run \"setupmywsl.sh\" script"
+    exit 0
+fi
+systemctl start snapd
+snap install code --classic
 
 # Updating some Important Databases
 gzip -d /usr/share/wordlists/rockyou.txt.gz
