@@ -13,6 +13,7 @@ This script performs a comprehensive setup of a WSL2 environment, including:
 - **Python Packages**: Installs various Python packages using `pip` for additional functionalities.
 - **GIT Configuration**: Configures if a specific "git" Parameter is passed while executing file e.g `./setupmywsl.sh git`.
     - _NOTE:_ Make Sure to Configure Your Username and Email in the code.)
+- **Configure Systemd**: Configure the Systemd to true in wsl.conf and prompts user to restart the WSL.
 - **Database Updates**: Updates several important databases used for security tools.
 - **Updated Nano Config**: Makes your nano shortcuts and interface more Windows like and easy to view and use.
 - **Updated Bash Config**: Makes the bash terminal more minmal and one-lined.
@@ -21,13 +22,18 @@ This script performs a comprehensive setup of a WSL2 environment, including:
 - **Final System Update**: Performs a final update, upgrade, and cleanup of unused packages.
 
 **Usage**:
+- Setting up Permissions
+```bash
+sudo chmod +x setup.sh
+./setup.sh
+```
 - Setting up WSL
 ```bash
-sudo bash setupmywsl.sh
+./setupmywsl.sh
 ```
 - Setting up WSL with Git Global Configurations (Make sure to Change your username and Email in code)
 ```
-sudo bash setupmywsl.sh git
+./setupmywsl.sh git
 ```
 
 ### `Updatemywsl.sh`
@@ -42,7 +48,7 @@ This script is designed to update and upgrade the WSL2 environment:
 
 **Usage**:
 ```bash
-sudo bash Updatemywsl.sh
+./updatemywsl.sh
 ```
 
 ### `Croncreator.sh`
@@ -56,7 +62,7 @@ This script sets up a cron job for automatic updates:
 
 **Usage**:
 ```bash
-sudo bash Croncreator.sh
+./croncreator.sh
 ```
 
 ## Requirements
