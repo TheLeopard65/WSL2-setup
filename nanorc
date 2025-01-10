@@ -216,7 +216,6 @@ set tabsize 4
 ## Hide the bars plus help lines and use the whole terminal as edit area.
 # set zero
 
-
 ## Paint the interface elements of nano.  These are examples; there are
 ## no colors by default, except for errorcolor and spotlightcolor.
 set titlecolor bold,white,black
@@ -244,7 +243,6 @@ set numbercolor magenta
 # set keycolor lightmagenta
 # set functioncolor magenta
 
-
 ## === Syntax coloring ===
 ## For all details, see 'man nanorc', section SYNTAX HIGHLIGHTING.
 
@@ -262,8 +260,7 @@ include "/usr/share/nano/*.nanorc"
 
 ## If <Tab> should always produce four spaces when editing a Python file,
 ## independent of the settings of 'tabsize' and 'tabstospaces':
-# extendsyntax python tabgives "    "
-
+extendsyntax python tabgives "    "
 
 ## === Key bindings ===
 ## For all details, see 'man nanorc', section REBINDING KEYS.
