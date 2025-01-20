@@ -76,7 +76,7 @@ set constantshow
 set historylog
 
 ## Display a "scrollbar" on the righthand side of the edit window.
-# set indicator
+set indicator
 
 ## Scroll the buffer contents per half-screen instead of per line.
 # set jumpyscrolling

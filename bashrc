@@ -1,9 +1,8 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-    *) return;;
+case $- in *i*) ;;
+	*) return;;
 esac
 
 # Don't put duplicate lines or lines starting with space in the history
@@ -61,8 +60,8 @@ if [ "$color_prompt" = yes ]; then
 
     # If the user is root, change prompt colors and set different symbol
     if [ "$EUID" -eq 0 ]; then
-        prompt_color='\[\033[1;31m\]'   # Red for root
-        info_color='\[\033[1;31m\]'     # Red for root info
+        user_color='\[\033[1;31m\]'   # Red for root
+        info_color='\[\033[1;36m\]'     # Red for root info
         prompt_symbol="💀"              # Skull emoji for root
     fi
 
@@ -80,10 +79,8 @@ fi
 # Set the terminal title (if supported)
 case "$TERM" in
     xterm*|rxvt*|Eterm|gnome*|alacritty)
-        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-        ;;
-    *)
-        ;;
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" ;;
+    *) ;;
 esac
 
 # Enable programmable completion features

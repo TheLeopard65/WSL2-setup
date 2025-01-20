@@ -43,4 +43,4 @@ fi
 rm "$TMP"
 
 # Final Echo
-echo "SUCCESS: Cron job added successfully: $JOB"
+echo "SUCCESS: CRON-JOB added successfully: $JOB"
