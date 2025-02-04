@@ -55,7 +55,7 @@ pipx ensurepath
 cp ./nanorc /etc/nanorc
 
 # Enabling Syntax Highlighting in Nano
-wget https://raw.githubusercontent.com/galenguyer/nano-syntax-highlighting/master/install.sh -O- | bash
+wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 
 # Making Terminal like compact and custom:
 cp ./bashrc /home/$SUDO_USER/.bashrc
