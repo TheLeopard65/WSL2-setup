@@ -8,7 +8,7 @@ fi
 # Updating and Upgrading for the WSL2
 apt update -y && apt upgrade -y
 apt install -y wget terminator openvpn firefox-esr wordlists webshells windows-binaries burpsuite ghidra wireshark nmap netdiscover libimage-exiftool-perl wafw00f sublist3r tor exploitdb recon-ng torbrowser-launcher dpkg clamav gobuster john network-manager feroxbuster eog aircrack-ng steghide hashcat sherlock nmap python3 theharvester hping3 dirsearch gobuster dirbuster autopsy masscan maltego chisel foremost pdf-parser ncat reaver wifite netcat-traditional sqlmap zbar-tools
-apt install -y metasploit-framework iptables nikto checksec ffmpeg plocate hydra binwalk git git-all git-lfs python3-dev libssl-dev libffi-dev build-essential libwine amass openvas-scanner trufflehog bloodhound trivy cme responder wfuzz wpscan pacu kismet-core beef gophish evilginx2 adb smbclient dnsenum curl whois pwncat sniffglue rizin sslh cewl dnsrecon httprobe hashid sslyze unicornscan mimikatz pompem pftools bash-completion neofetch radare2 snapd npm nodejs openjdk-11-jdk enum4linux freerdp2-x11 smbclient nbtscan postgresql ffuf tshark powershell impacket-scripts evil-winrm crackmapexec cadaver davtest shellter xsser sqlite3 default-mysql-server ltrace strace
+apt install -y metasploit-framework iptables nikto checksec ffmpeg plocate hydra binwalk git git-all git-lfs python3-dev libssl-dev libffi-dev build-essential libwine amass openvas-scanner trufflehog bloodhound trivy cme responder wfuzz wpscan pacu kismet-core beef gophish evilginx2 adb smbclient dnsenum curl whois pwncat sniffglue rizin sslh cewl dnsrecon httprobe hashid sslyze unicornscan mimikatz pompem pftools bash-completion neofetch radare2 snapd npm nodejs openjdk-11-jdk enum4linux freerdp2-x11 smbclient nbtscan postgresql ffuf tshark powershell impacket-scripts evil-winrm crackmapexec cadaver davtest shellter xsser sqlite3 default-mysql-server ltrace strace jadx apktool ollydbg faketime
 
 # Installing important pips
 apt install python3-pip pipx
@@ -38,6 +38,17 @@ if [ ! -f /etc/wsl.conf ] || ! grep -q "systemd=true" /etc/wsl.conf; then
 fi
 systemctl enable snapd
 systemctl enable postgresql
+
+# Installing Docker on the System
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt --purge remove -y $pkg; done
+apt update -y && apt upgrade -y && apt install ca-certificates curl
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt update -y && apt upgrade -y
+apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+usermod -aG docker $USER
 
 # Enabling 32-Bit Packages
 dpkg --add-architecture i386
