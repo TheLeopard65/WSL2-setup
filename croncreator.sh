@@ -7,9 +7,9 @@ if [ "$(whoami)" != "root" ]; then
 fi
 
 # Define paths
-SCRIPT_SRC="./updatemywsl.sh"
-SCRIPT_DEST="/root/.updatemywsl.sh"
-LOG_FILE="/var/log/updatemywsl.log"
+SCRIPT_SRC="./update.sh"
+SCRIPT_DEST="/root/.update.sh"
+LOG_FILE="/var/log/update.log"
 
 # Copy the script
 cp "$SCRIPT_SRC" "$SCRIPT_DEST"
@@ -43,4 +43,4 @@ fi
 rm "$TMP"
 
 # Final Echo
-echo "SUCCESS: CRON-JOB added successfully: $JOB"
+echo "SUCCESS: CRON-JOB ADDED SUCCSSFULLY: $JOB"
