@@ -44,8 +44,8 @@ nanorc_change=$(echo "$nanorc_change" | tr '[:upper:]' '[:lower:]')
 
 # Updating and Upgrading for the WSL2 & Installing Normal CLI Kali specific Tools Installed for Pentesting and PWN/BIN/Reverse/WEB
 apt update -y && apt upgrade -y
-apt install -y wget curl whois openvpn wordlists webshells exploitdb nmap dpkg gobuster john hydra hashcat python3 sqlmap netcat-traditional metasploit-framework nikto checksec git git-all plocate build-essential bloodhound wpscan hashid neofetch powershell smbclient pwncat enum4linux freerdp2-x11 npm nodejs postgresql crackmapexec impacket-scripts evil-winrm
-apt install -y windows-binaries netdiscover chisel ncat git-lfs python3-dev libssl-dev libwine cewl radare2 mimikatz wfuzz ffuf jadx apktool faketime binwalk steghide sublist3r feroxbuster libimage-exiftool-perl openjdk-11-jdk zbar-tools pdf-parser foremost ffmpeg iptables cme python3-pip pipx davtest cadaver sqlite3 default-mysql-server ltrace strace
+apt install -y wget curl whois openvpn wordlists webshells exploitdb nmap dpkg gobuster john hydra hashcat python3 sqlmap netcat-traditional metasploit-framework nikto checksec git git-all plocate build-essential bloodhound wpscan hashid neofetch powershell smbclient pwncat enum4linux freerdp2-x11 npm nodejs postgresql crackmapexec impacket-scripts evil-winrm firefox-esr
+apt install -y windows-binaries netdiscover chisel ncat git-lfs python3-dev libssl-dev libwine cewl radare2 mimikatz wfuzz ffuf jadx apktool faketime binwalk steghide sublist3r feroxbuster libimage-exiftool-perl openjdk-11-jdk zbar-tools pdf-parser foremost ffmpeg iptables cme python3-pip pipx davtest cadaver sqlite3 default-mysql-server ltrace strace dirbuster
 
 # OPTIONAL: Installing The tools are not necessarily used every day
 if [[ "$optx" == "y" ]]; then
@@ -54,7 +54,7 @@ fi
 
 # OPTIONAL: Installing GUI-Based Tools (These should be installed on Windows itself for better performance)
 if [[ "$guix" == "y" ]]; then
-    apt install terminator firefox-esr burpsuite ghidra wireshark tor torbrowser-launcher clamav eog dirbuster autopsy maltego ollydbg kismet-core beef gophish
+    apt install terminator burpsuite ghidra wireshark tor torbrowser-launcher clamav eog autopsy maltego ollydbg kismet-core beef gophish
     greenbone-nvt-sync
     freshclam
 fi
