@@ -12,8 +12,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # Set history size
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # Check window size after each command and update LINES and COLUMNS
 shopt -s checkwinsize
@@ -118,10 +118,10 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 export EDITOR=nano
 
 # Make history more useful
-shopt -s histappend        # Append to history file
+shopt -s histappend            # Append to history file
 export HISTCONTROL=ignoreboth  # Don't record duplicate commands
-export HISTSIZE=1000        # Max number of history entries to keep
-export HISTFILESIZE=2000    # Max number of history entries in the history file
+export HISTSIZE=10000          # Max number of history entries to keep
+export HISTFILESIZE=20000      # Max number of history entries in the history file
 
 # Adding some useful environment variables
 export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin

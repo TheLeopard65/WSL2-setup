@@ -34,6 +34,10 @@ read -p "[#] DO YOU WANT TO ADD GLOBAL LEVEL GIT CONFIGURATIONS? (Y/N) [default:
 gitx=${gitx:-N}
 gitx=$(echo "$gitx" | tr '[:upper:]' '[:lower:]')
 
+read -p "[#] DO YOU WANT TO ENABLE THE SYSTEMD (DAEMON) FOR SERVICES? (Y/N) [default: N] : " sysd
+sysd=${sysd:-N}
+sysd=$(echo "$sysd" | tr '[:upper:]' '[:lower:]')
+
 read -p "[#] DO YOU WANT TO CHANGE BASHRC FILE FOR BETTER USAGE WITH MOUSE? (Y/N) [default: N] : " bashrc_change
 bashrc_change=${bashrc_change:-N}
 bashrc_change=$(echo "$bashrc_change" | tr '[:upper:]' '[:lower:]')
@@ -44,8 +48,9 @@ nanorc_change=$(echo "$nanorc_change" | tr '[:upper:]' '[:lower:]')
 
 # Updating and Upgrading for the WSL2 & Installing Normal CLI Kali specific Tools Installed for Pentesting and PWN/BIN/Reverse/WEB
 apt update -y && apt upgrade -y
-apt install -y wget curl whois openvpn wordlists webshells exploitdb nmap dpkg gobuster john hydra hashcat python3 sqlmap netcat-traditional metasploit-framework nikto checksec git git-all plocate build-essential bloodhound wpscan hashid neofetch powershell smbclient pwncat enum4linux freerdp2-x11 npm nodejs postgresql crackmapexec impacket-scripts evil-winrm firefox-esr
+apt install -y wget curl whois openvpn wordlists webshells exploitdb nmap dpkg gobuster john hydra hashcat python3 sqlmap netcat-traditional metasploit-framework nikto checksec git git-all plocate build-essential bloodhound wpscan hashid powershell smbclient pwncat enum4linux freerdp2-x11 npm nodejs postgresql crackmapexec impacket-scripts evil-winrm firefox-esr
 apt install -y windows-binaries netdiscover chisel ncat git-lfs python3-dev libssl-dev libwine cewl radare2 mimikatz wfuzz ffuf jadx apktool faketime binwalk steghide sublist3r feroxbuster libimage-exiftool-perl openjdk-11-jdk zbar-tools pdf-parser foremost ffmpeg iptables cme python3-pip pipx davtest cadaver sqlite3 default-mysql-server ltrace strace dirbuster
+apt install -y python3-requests python3-pycryptodome python3-pwntools
 
 # OPTIONAL: Installing The tools are not necessarily used every day
 if [[ "$optx" == "y" ]]; then
@@ -61,8 +66,9 @@ fi
 
 # OPTIONAL: Installing important pips
 if [[ "$pipt" == "y" ]]; then
-    apt install python3-flask python3-flask-socketio python3-bcrypt python3-requests python3-flask-restful python3-bs4 python3-numpy python3-pandas python3-matplotlib python3-paramiko python3-socketio python3-nmap python3-lxml python3-selenium python3-yaml python3-pycryptodome python3-geopy python3-colormap python3-termcolor python3-scapy python3-shodan python3-pyqt5 python3-tk python3-pydantic python3-cryptography python3-sqlalchemy python3-opencv python3-pil python3-pyautogui python3-soundfile python3-pynput python3-pwntools python3-capstone python3-corepywrap python3-impacket python3-ropgadget
-    pipx install websocket-client pwnedpasswords geocoder ipython impacket tqdm pytesseract pytest pyinstaller ropgadget pwntools
+    apt install -y python3-flask python3-flask-socketio python3-bcrypt python3-flask-restful python3-bs4 python3-numpy python3-pandas python3-matplotlib python3-paramiko python3-socketio python3-nmap python3-lxml python3-selenium python3-yaml python3-geopy python3-colormap python3-termcolor
+    apt install -y python3-tk python3-pydantic python3-cryptography python3-sqlalchemy python3-opencv python3-pil python3-pyautogui python3-soundfile python3-pynput python3-capstone python3-corepywrap python3-impacket python3-ropgadget python3-scapy python3-shodan python3-pyqt5
+    pipx install websocket-client pwnedpasswords geocoder ipython impacket tqdm pytesseract pytest pyinstaller ropgadget pwntools flask
 fi
 
 # OPTIONAL: Setting up your Git and Github Configurations Globally. (MAKE SURE TO CHANGE THE CONFIGURATIONS BELOW)
@@ -72,22 +78,24 @@ if [[ "$gitx" == "y" ]]; then
     git config --global init.defaultBranch main
 fi
 
-# ADD-ON: Setting Up Systemd for service controls & snapd
-if [ ! -f /etc/wsl.conf ] || ! grep -q "systemd=true" /etc/wsl.conf; then
-    if [ ! -f /etc/wsl.conf ]; then
-        touch /etc/wsl.conf
+if [[ "$sysd" == "y" ]]; then
+    # ADD-ON: Setting Up Systemd for service controls & snapd
+    if [ ! -f /etc/wsl.conf ] || ! grep -q "systemd=true" /etc/wsl.conf; then
+        if [ ! -f /etc/wsl.conf ]; then
+            touch /etc/wsl.conf
+        fi
+        echo "[boot]" >> /etc/wsl.conf
+        echo "systemd=true" >> /etc/wsl.conf
+        systemctl enable snapd
+        echo "[#] Please Exit the WSL and the Following Commands on the CMD."
+        echo "powershell.exe wsl --update"
+        echo "powershell.exe wsl --shutdown"
+        echo "[#] Then, Restart WSL and re-run \"setupmywsl.sh\" script."
+        exit 0
     fi
-    echo "[boot]" >> /etc/wsl.conf
-    echo "systemd=true" >> /etc/wsl.conf
     systemctl enable snapd
-    echo "[#] Please Exit the WSL and the Following Commands on the CMD."
-    echo "powershell.exe wsl --update"
-    echo "powershell.exe wsl --shutdown"
-    echo "[#] Then, Restart WSL and re-run \"setupmywsl.sh\" script."
-    exit 0
+    systemctl enable postgresql
 fi
-systemctl enable snapd
-systemctl enable postgresql
 
 # OPTIONAL: INSTALLING DOCKER ON THE WSL2 KALI-LINUX SYSTEM
 if [[ "$dock" == "y" ]]; then
@@ -183,7 +191,6 @@ apt full-upgrade -y
 apt autoremove -y
 updatedb
 
-# Move to Home Directory and run neofetch
+# Move to Home Directory
 clear
 cd
-neofetch
