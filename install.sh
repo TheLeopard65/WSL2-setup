@@ -18,9 +18,13 @@ read -p "[#] DO YOU WANT TO INSTALL GUI-BASED TOOLS? (Y/N) [default: N] : " guix
 guix=${guix:-N}
 guix=$(echo "$guix" | tr '[:upper:]' '[:lower:]')
 
-read -p "[#] DO YOU WANT TO INSTALL PIP & PIPX TOOLS? (Y/N) [default: N] : " pipt
+read -p "[#] DO YOU WANT TO INSTALL PIP3 & PIPX TOOLS? (Y/N) [default: N] : " pipt
 pipt=${pipt:-N}
 pipt=$(echo "$pipt" | tr '[:upper:]' '[:lower:]')
+
+read -p "[#] DO YOU WANT TO INSTALL PYTHON2 & PIP2 TOOLS? (Y/N) [default: N] : " pyp2
+pipt=${pyp2:-N}
+pipt=$(echo "$pyp2" | tr '[:upper:]' '[:lower:]')
 
 read -p "[#] DO YOU WANT TO INSTALL NON-APT REPO TOOLS? (Y/N) [default: N] : " napt
 napt=${napt:-N}
@@ -69,6 +73,11 @@ if [[ "$pipt" == "y" ]]; then
     apt install -y python3-flask python3-flask-socketio python3-bcrypt python3-flask-restful python3-bs4 python3-numpy python3-pandas python3-matplotlib python3-paramiko python3-socketio python3-nmap python3-lxml python3-selenium python3-yaml python3-geopy python3-colormap python3-termcolor
     apt install -y python3-tk python3-pydantic python3-cryptography python3-sqlalchemy python3-opencv python3-pil python3-pyautogui python3-soundfile python3-pynput python3-capstone python3-corepywrap python3-impacket python3-ropgadget python3-scapy python3-shodan python3-pyqt5
     pipx install websocket-client pwnedpasswords geocoder ipython impacket tqdm pytesseract pytest pyinstaller ropgadget pwntools flask
+fi
+
+if [[ "$pyp2" == "y" ]]; then
+	apt install -y python2 python2-dev python2-minimal
+	./get-pip2.py
 fi
 
 # OPTIONAL: Setting up your Git and Github Configurations Globally. (MAKE SURE TO CHANGE THE CONFIGURATIONS BELOW)
