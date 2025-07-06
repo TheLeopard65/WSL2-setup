@@ -77,7 +77,7 @@ fi
 
 if [[ "$pyp2" == "y" ]]; then
 	apt install -y python2 python2-dev python2-minimal
-	./get-pip2.py
+	python2 ./get-pip2.py
 fi
 
 # OPTIONAL: Setting up your Git and Github Configurations Globally. (MAKE SURE TO CHANGE THE CONFIGURATIONS BELOW)
