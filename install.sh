@@ -63,7 +63,7 @@ fi
 
 # OPTIONAL: Installing GUI-Based Tools (These should be installed on Windows itself for better performance)
 if [[ "$guix" == "y" ]]; then
-    apt install terminator burpsuite ghidra wireshark tor torbrowser-launcher clamav eog autopsy maltego ollydbg kismet-core beef gophish
+    apt install -y terminator burpsuite ghidra wireshark tor torbrowser-launcher clamav eog autopsy maltego ollydbg kismet-core beef gophish
     greenbone-nvt-sync
     freshclam
 fi
